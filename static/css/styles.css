@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+body{
+   background-color: #EBE6FF;
+}
+
+.header{
+  width: 100%;
+  height: 60px;
+  background: #16191c;
+  padding: 10px 100px;
+  position: fixed;
+}
+
+.search-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 0px;
+}
+
+
+.search-btn{
+  color: #e84118;
+  float: left;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.search-txt {
+ border: none;
+ background: none;
+ outline: none;
+ float: left;
+ padding: 0;
+ color: white;
+ font-size: 16px;
+ line-height: 40px;
+ width: 300px;
+ font-weight: bold;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 110px;
+  height: 100%;
+  background: #16191c;
+  padding: 100px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar ul li{
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.wrapper .sidebar ul li a{
+  padding: 30px 20px 30px 10px;
+  color: #bdb8d7;
+  display: inline-block;
+}
+
+
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+  width: 120px;
+  border-radius: 0 10px 10px 0;
+  background-image: -webkit-linear-gradient(right,#b839e2,#2e6bd3)
+}
+
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+
+
+.wrapper .main_content{
+  width: 100%;
+  height: 100%;
+  margin-left: 10px;
+  margin-top: 60px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+}
+
+.card-box{
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin: 80px;
+  margin-left: 110px;
+}
+
+
+
+.card{
+  background-color: #1e272e;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.card-img{
+  padding: 1px 5px 1px 5px;
+  position: relative;
+}
+
+.in-game-inspect{
+  top:3%;
+  right:3%;
+  position: absolute;
+  height: 15px;
+  width: 24px;
+}
+
+.in-game-inspect a{
+  padding: 1px;
+  border: 2px solid #bdb8d7;
+  color: #bdb8d7;
+  border-radius: 5px;
+  display: flex;
+}
+
+.view-detail{
+  top:15%;
+  right:3%;
+  position: absolute;
+  height: 15px;
+  width: 24px;
+}
+
+.view-detail a{
+  padding: 1px;
+  border: 2px solid #bdb8d7;
+  color: #bdb8d7;
+  border-radius: 5px;
+  display: flex;
+}
+
+.trade-ban{
+  position: absolute;
+  top: 4%;
+  left: 1%;
+  color: #bdb8d7;
+}
+
+.card-img .float{
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+.card-img .price{
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  margin: 2px;
+}
+
+
+
+.card-info{
+  border-top: 2px solid #485460;
+  border-radius: 10px;
+  color: #bdb8d7;
+  padding: 10px;
+}
+
+.wear-line{
+  border-radius: 7px;
+  margin: 5px;
+  height: 7px;
+  background-image: linear-gradient(to right, rgb(46, 204, 113) 7%, rgb(255, 242, 0), rgb(255, 56, 56) 55%)
+}
+
+
+
+.wear-line .line{
+  height: 7px;
+}
+
+
+.pointer{
+  color: white;
+  position: relative;
+  bottom: 20px;
+}
