@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="main_content">
+        <div class="card-box">
+        {% for item in items %}
+                    {% include "card-box.html" %}
+
+        {% endfor %}
+
+        </div>
+    </div>
+
+
+{% endblock %}
