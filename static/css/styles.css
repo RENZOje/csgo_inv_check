@@ -9,129 +9,140 @@
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-body{
-   background-color: #EBE6FF;
+.wrapper{
+  overflow: hidden;
 }
 
-.header{
+.p-0{
+  padding: 0;
+}
+
+.m-10{
+  margin: 10px;
+}
+
+.card-box{
+  max-width: 1900px;
+  margin: 0px auto;
+}
+
+body{
+  max-width: 100%;
+  background-image: url(img/bugs.png);
+}
+
+
+header{
   width: 100%;
   height: 60px;
-  background: #16191c;
-  padding: 10px 100px;
-  position: fixed;
+  background: #2f3640;
+  position: sticky;
+  top:0;
+  z-index: 1000;
+}
+
+.logo_img-responsive{
+  height: 60px;
+}
+.img-responsive{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+nav{
+  width: 100%;
+  height: 60px;
+}
+
+nav ul{
+  display: flex;
+  margin: 0;
+}
+
+
+nav ul li a{
+  display: block;
+  color: #fff;
+  padding: 0 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 50px;
 }
 
 .search-box{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #2f3640;
-  height: 40px;
+  margin-top: 10px;
+  background: #576574;
   border-radius: 40px;
-  padding: 0px;
+  height: 40px;
 }
-
 
 .search-btn{
   color: #e84118;
   float: left;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: #2f3640;
+  border-radius: 70%;
+  background: #576574;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 .search-txt {
- border: none;
- background: none;
- outline: none;
- float: left;
- padding: 0;
- color: white;
- font-size: 16px;
- line-height: 40px;
- width: 300px;
- font-weight: bold;
-}
-
-.wrapper{
-  display: flex;
-  position: relative;
-}
-
-.wrapper .sidebar{
-  width: 110px;
-  height: 100%;
-  background: #16191c;
-  padding: 100px 0px;
-  position: fixed;
-}
-
-.wrapper .sidebar ul li{
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.wrapper .sidebar ul li a{
-  padding: 30px 20px 30px 10px;
-  color: #bdb8d7;
-  display: inline-block;
-}
-
-
-
-.wrapper .sidebar ul li:hover{
-  background-color: #594f8d;
-  width: 120px;
-  border-radius: 0 10px 10px 0;
-  background-image: -webkit-linear-gradient(right,#b839e2,#2e6bd3)
-}
-
-.wrapper .sidebar ul li:hover a{
+  margin-left:5px;
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
   color: #fff;
+  font-size: 16px;
+  line-height: 40px;
+  width: 80%;
+  font-weight: bold;
 }
 
+.menu-list{
+  padding-top: 5px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
 
-.wrapper .main_content{
+.filter{
+  background: #576574;
+  height: 30px;
   width: 100%;
-  height: 100%;
-  margin-left: 10px;
-  margin-top: 60px;
-}
-
-.wrapper .main_content .header{
-  padding: 20px;
 }
 
 .card-box{
-  display: inline-flex;
-  flex-wrap: wrap;
-  margin: 80px;
-  margin-left: 110px;
+
 }
 
-
-
 .card{
+  padding-bottom: 1px;
   background-color: #1e272e;
   border-radius: 10px;
-  margin: 10px;
 }
 
 .card-img{
-  padding: 1px 5px 1px 5px;
-  position: relative;
+  background-size: contain;
+  padding: 5px 10px 5px 10px;
+  height: 15em;
+  background-repeat: no-repeat;
+  background-position: 50% 50px;
 }
+
 
 .in-game-inspect{
   top:3%;
-  right:3%;
+  right:10px;
   position: absolute;
   height: 15px;
   width: 24px;
@@ -146,8 +157,8 @@ body{
 }
 
 .view-detail{
-  top:15%;
-  right:3%;
+  top:11%;
+  right:10px;
   position: absolute;
   height: 15px;
   width: 24px;
@@ -162,19 +173,13 @@ body{
 }
 
 .trade-ban{
-  position: absolute;
-  top: 4%;
-  left: 1%;
+  height: 2em;
   color: #bdb8d7;
 }
 
-.card-img .float{
-  display: flex;
-  justify-content: center;
-  color: #fff;
-}
 
-.card-img .price{
+
+.price{
   display: flex;
   justify-content: center;
   color: #fff;
@@ -184,15 +189,17 @@ body{
 
 
 .card-info{
+  text-align: center;
   border-top: 2px solid #485460;
   border-radius: 10px;
   color: #bdb8d7;
-  padding: 10px;
+  padding: 7px;
 }
+
 
 .wear-line{
   border-radius: 7px;
-  margin: 5px;
+  margin: 10px;
   height: 7px;
   background-image: linear-gradient(to right, rgb(46, 204, 113) 7%, rgb(255, 242, 0), rgb(255, 56, 56) 55%)
 }
@@ -201,6 +208,7 @@ body{
 
 .wear-line .line{
   height: 7px;
+  padding-bottom: 5px;
 }
 
 

@@ -1,8 +1,8 @@
 {% load static %}
 
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 pl-0 pr-1 ">
-                    <div class="card" style="box-shadow: 0 0 10px #{{ item.color }}, 0 0 20px #{{ item.color }};">
-                        <div class="card-img" alt="skin" style="display: block; background-image: {{ item.link_img }}">
+                    <div class="card" style="box-shadow: 0 0 10px #{{ item.color }};, 0 0 20px #{{ item.color }};">
+                        <div class="card-img" alt="skin" style="display: block; background-image: url({{ item.link_img }});">
                             <div class="in-game-inspect">
                                 <a href={{ item.link_inspect }}>
                                 <i class="fas fa-eye"></i>
@@ -13,10 +13,10 @@
                                 <a href="#"><i class="fas fa-search-plus"></i></a>
                             </div>
                             {% if item.expiration_data %}
-                            <div class="trade-ban"><p>Ban for: 2019-12-30T08:00:00Z</p></div>
+                            <div class="trade-ban"><p>{{ item.expiration_data }}</p></div>
                             {% endif %}
                             {% if item.price_av_week %}
-                            <div class="price"><p>Price: 47.47</p></div>
+                            <div class="price"><p>Price: {{ item.price_av_week }}$</p></div>
                             {% endif %}
                         </div>
 
@@ -24,14 +24,14 @@
                             <div class="name">
                                 <span>{{ item.name }}</span>
                                 {% if item.float %}
-                                <div class="float"><p>Float: 0.1113</p></div>
+                                <div class="float"><p>Float: {{ item.float }}</p></div>
                                 {% endif %}
                             </div>
                         </div>
                         {% if item.float %}
                         <div class="wear-line">
                             <div class="line"></div>
-                            <div class="pointer" style="left: 61%;"> 
+                            <div class="pointer" style="left: {% widthratio item.float 1 100 %}%;">
                                 <i class="fas fa-caret-down"></i>
                             </div>
                         </div>

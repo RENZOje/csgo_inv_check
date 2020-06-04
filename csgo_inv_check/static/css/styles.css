@@ -9,15 +9,22 @@
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.wrapper{
+  overflow: hidden;
+}
+
 .p-0{
   padding: 0;
 }
 
 .m-10{
   margin: 10px;
-  margin-right: 0;
 }
 
+.card-box{
+  max-width: 1900px;
+  margin: 0px auto;
+}
 
 body{
   max-width: 100%;
@@ -88,7 +95,7 @@ nav ul li a{
 }
 
 .search-txt {
-  margin-left:5px; 
+  margin-left:5px;
   border: none;
   background: none;
   outline: none;
@@ -115,11 +122,11 @@ nav ul li a{
 }
 
 .card-box{
-  background: url(img/1.jpg);
+
 }
 
 .card{
-
+  padding-bottom: 1px;
   background-color: #1e272e;
   border-radius: 10px;
 }
@@ -201,7 +208,7 @@ nav ul li a{
 
 .wear-line .line{
   height: 7px;
-  padding-bottom: 5px; 
+  padding-bottom: 5px;
 }
 
 

@@ -4,35 +4,32 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Kukaracha</title>
-  <link rel="stylesheet" href="{% static '/css/styles.css' %}">
-  <link rel="stylesheet" href="{% static '/main2.css' %}">
-  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Kukaracha</title>
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static '/css/bootstrap-grid.min.css' %}">
+
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
 </head>
 <body>
 
 <div class="wrapper">
 
-    <div class="header">
-        <div class="search-box" >
-            <a class="search-btn" type="submit" name="q">
-                <i class="fas fa-search"></i>
-            </a>
 
-            <input class="search-txt" type="search" placeholder="Type to search" name="q">
-        </div>
-
-    </div>
-
-    {% include "sidebar.html" %}
+    {% include "header.html" %}
+    {% include "2header.html" %}
 
 </div>
 
-        {% block content %}
+{% block content %}
 
-        {% endblock %}
+{% endblock %}
 
 
 </body>

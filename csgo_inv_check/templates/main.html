@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
+
+
+
+
 {% block content %}
 
-    <div class="main_content">
-        <div class="card-box">
-        {% for item in items %}
-                    {% include "card-box.html" %}
+    <section class="card-box">
+    <div class="container-fluid m-10">
+        <div class="row" style="background-image: url({% static 'images/bugs.png' %}); height: 100%;">
 
-        {% endfor %}
+            {% for item in items %}
+
+                {% include "card-box.html" %}
+
+            {% endfor %}
 
         </div>
     </div>
 
-
 {% endblock %}
+</section>

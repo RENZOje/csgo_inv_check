@@ -41,7 +41,7 @@ def view_main(requests):
             instance_item.append(item)
             query_item_list.append(item.id)
 
-        total_price = sum(items['price'])
+        total_price = round(sum(items['price']),2)
 
         query = Query.objects.create(items=query_item_list, total_price=total_price)
 
