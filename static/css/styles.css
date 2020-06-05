@@ -126,6 +126,7 @@ nav ul li a{
 }
 
 .card{
+  height: 320px;
   padding-bottom: 1px;
   background-color: #1e272e;
   border-radius: 10px;

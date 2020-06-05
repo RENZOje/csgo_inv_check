@@ -1,23 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from checker.executor import *
 from .models import Item, Query
-
-# name = models.CharField(max_length=300, null=True)
-# link_img = models.CharField(max_length=500, null=True)
-# link_inspect = models.CharField(max_length=500, null=True)
-# float = models.FloatField(null=True)
-# color = models.CharField(max_length=50, null=True)
-# # trade_lock = models.CharField(max_length=100, null=True)
-# amount = models.IntegerField(null=True)
-# class_item = models.CharField(max_length=50, null=True)
-# expiration_data = models.CharField(max_length=50, null=True)
-# price_av_week = models.IntegerField(null=True)
-# condition = models.CharField(max_length=50, null=True)
-
-
-
+from .forms import CreateUserForm
 
 # Create your views here.
+
+@login_required(login_url='login')
 def view_main(requests):
     instance_item = []
     query_id = requests.GET.get('q', None)
@@ -52,3 +43,48 @@ def view_main(requests):
         context = {}
         return render(requests, 'main.html',context=context)
 
+
+
+def login_page(request):
+    if request.user.is_authenticated:
+        return redirect('home_page')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect('home_page')
+            else:
+                messages.info(request,'Username or password is incorrect')
+
+
+        context = {}
+        return render(request,'login.html',context=context)
+
+def logout_page(request):
+    logout(request)
+
+    return redirect('login')
+
+
+def register_page(request):
+    if request.user.is_authenticated:
+        return redirect('home_page')
+    else:
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request,f'Account created for {user}')
+
+                return redirect('login')
+
+        context = {'form':form}
+
+        return render(request,'registration.html',context=context)
