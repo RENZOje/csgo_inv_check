@@ -11,19 +11,18 @@ from checker.async_scraper_price import call_price
 
 session = HTMLSession()
 
-# json_data = json.loads(session.get(f'https://steamcommunity.com/profiles/76561198245579318/inventory/json/730/2').text)
 
 
 
-json_data = json.load(open(r'C:\Project(python)\csgo_inv_check\checker\file.txt','r'))
+# json_data = json.load(open(r'C:\Project(python)\csgo_inv_check\checker\file.txt','r'))
 
-steam_id64 = '76561198245579318'
-
-
+# steam_id64 = '76561198245579318'
 
 
 
-def inspect_url(steam_id64,rg_inv_keys,rg_descr_keys):
+
+
+def inspect_url(steam_id64,rg_inv_keys,rg_descr_keys, json_data):
     global rd_inspect_url
     _dict_for_inspect = dict()
 
@@ -40,7 +39,7 @@ def inspect_url(steam_id64,rg_inv_keys,rg_descr_keys):
             pass
     return rd_inspect_url
 
-def inspect_quality_exterior_data(rg_descr_keys):
+def inspect_quality_exterior_data(rg_descr_keys, json_data):
     global rd_inspect_quality_exterior #['Covert', 'eb4b4b', 'Factory New']
     rd_inspect_quality_exterior = []
     for _ in rg_descr_keys:
@@ -58,7 +57,7 @@ def inspect_quality_exterior_data(rg_descr_keys):
     return rd_inspect_quality_exterior
 
 
-def expiration_data(rg_descr_keys):
+def expiration_data(rg_descr_keys, json_data):
     # trade lock
     global rd_expiration
     rd_expiration = []
@@ -75,15 +74,15 @@ def expiration_data(rg_descr_keys):
     return rd_expiration
 
 def executor(steam_id64):
-
+    json_data = json.loads(session.get(f'https://steamcommunity.com/profiles/{steam_id64}/inventory/json/730/2').text)
     rg_inv_keys = json_data['rgInventory'].keys()
     rg_descr_keys = json_data['rgDescriptions'].keys()
     ri_classid_amount = list(dict(Counter((json_data['rgInventory'][_]['classid'] for _ in rg_inv_keys))).values())
     rd_full_name = [json_data['rgDescriptions'][_]['market_hash_name'] for _ in rg_descr_keys]
     rd_icon_url = [f'https://steamcommunity-a.akamaihd.net/economy/image/{json_data["rgDescriptions"][_]["icon_url"]}/330x192' for _ in rg_descr_keys]
-    rd_inspect_url = inspect_url(steam_id64,rg_inv_keys,rg_descr_keys)
-    rd_inspect_quality_exterior = inspect_quality_exterior_data(rg_descr_keys)
-    rd_expiration = expiration_data(rg_descr_keys)
+    rd_inspect_url = inspect_url(steam_id64,rg_inv_keys,rg_descr_keys, json_data)
+    rd_inspect_quality_exterior = inspect_quality_exterior_data(rg_descr_keys, json_data)
+    rd_expiration = expiration_data(rg_descr_keys, json_data)
     prices_items = call_price(rd_full_name=rd_full_name)
     floats_items = call_float(rd_inspect_url=rd_inspect_url)
     items = {'rd_full_name':rd_full_name,

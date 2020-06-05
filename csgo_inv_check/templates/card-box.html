@@ -13,7 +13,7 @@
                                 <a href="#"><i class="fas fa-search-plus"></i></a>
                             </div>
                             {% if item.expiration_data %}
-                            <div class="trade-ban"><p>{{ item.expiration_data }}</p></div>
+                            <div class="trade-ban"><p>Trade lock: {{ item.expiration_data }}</p></div>
                             {% endif %}
                             {% if item.price_av_week %}
                             <div class="price"><p>Price: {{ item.price_av_week }}$</p></div>
