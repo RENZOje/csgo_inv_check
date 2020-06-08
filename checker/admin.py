@@ -5,4 +5,6 @@ from .models import *
 
 admin.site.register(Item)
 admin.site.register(Query)
+admin.site.register(Profile)
+
 

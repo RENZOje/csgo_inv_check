@@ -5,13 +5,13 @@
         <div class="row">
             <div class="col-xl-1 col-sm-4 col-md-2 sm-order1">
                 <div class="logo-wrapper">
-                    <a href="">
+                    <a href="{% url 'home_page' %}">
                         <img src="{% static 'images/logo.png' %}" alt="Логотип" class="logo_img-responsive">
                     </a>
                 </div>
             </div>
 
-            <form class="col-xl-5 col-lg-4 col-md-3 col-3 pl-0 pr-0">
+            <form class="col-xl-5 col-lg-4 col-md-3 col-3 pl-0 pr-0" action="{% url 'new_query' %}">
                 <div class="search-box">
                     <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
                     <input class="search-txt" type="search" name="q" placeholder="Type to search">
@@ -25,7 +25,7 @@
                             <a href="#" class="menu-list-link s">Help</a>
                         </li>
                         <li class="menu-list-item">
-                            <a href="" class="menu-list-link">Profile <u>`{{ request.user }}`</u></a>
+                            <a href="{% url 'profile' %}" class="menu-list-link">Profile <u>`{{ request.user }}`</u></a>
                         </li>
                         {% if not request.user.is_authenticated %}
                             <li class="menu-list-item">

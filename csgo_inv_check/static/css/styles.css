@@ -9,9 +9,10 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.wrapper {
-    overflow: hidden;
+.wrapper{
+  overflow: hidden;
 }
+
 
 .p-0 {
     padding: 0;
