@@ -1,45 +1,109 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
-<style>
-    .profile-picture {
-        max-width: 200px;
-        max-height: 200px;
-        margin: 0 auto;
-        border-radius: 50%;
-    }
-</style>
+
 
 
 {% block content %}
 
 
-    <br>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card card-body">
-                <a class="btn btn-warning" href="{% url 'home_page' %}"> &#8592; Back to Profile</a>
-                <hr>
-                <h3 style="text-align: center">Account Settings</h3>
-                <hr>
-                <img class="profile-picture" src="{{ request.user.profile.profile_pic.url }}">
+    <section class="profile-info" style="margin: 10px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
 
+                    <div class="profile">
+                        <div class="img-img" alt="img"
+                             style="background-image: url({{ request.user.profile.profile_pic.url }});">
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            {{ form|crispy }}
+
+                            <input class="btn btn-primary" type="submit" name="Update Information">
+                        </form>
+
+                    </div>
+
+                    <div class="btmp">
+                        <a href="{% url 'home_page' %}"><h3 class="text"><i class="fas fa-arrow-left"></i> Back to main page</h3></a>
+                    </div>
+
+                </div>
+
+
+                <div class="col-4">
+                    <div class="history-my">
+                        <div class="sss">
+                            <a href="#">
+                                <ul>
+                                    <li>My inventory:</li>
+                                    <li></li>
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="sss">
+                            <a href="#">
+                                <ul>
+                                    <li>Date: 10.05.15 at 15:25</li>
+                                    <li>Total price: 47$</li>
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="sss">
+                            <a href="#">
+                                <ul>
+                                    <li>Date: 10.05.15 at 15:25</li>
+                                    <li>Total price: 47$</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-5">
+                    <div class="history-other">
+                        <div class="sss">
+                            <a href="#">
+                                <ul>
+                                    <li></li>
+                                    <li>Friends inventory:</li>
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="sss">
+                            <a href="#">
+                                <ul>
+                                    <li>Date: 10.05.15 at 15:25</li>
+                                    <li>Total price: 47$</li>
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="sss">
+                            <a href="#">
+                                <ul>
+                                    <li>Date: 10.05.15 at 15:25</li>
+                                    <li>Total price: 47$</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-9">
-            <div class="card card-body">
-
-                <form method="POST" action="" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-
-                    <input class="btn btn-primary" type="submit" name="Update Information">
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
+    </section>
 
 {% endblock %}
+
+
+
+
+
+
+
+

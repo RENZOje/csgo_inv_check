@@ -22,10 +22,12 @@
                 <nav class="main-nav">
                     <ul class="menu-list">
                         <li class="menu-list-item">
-                            <a href="#" class="menu-list-link s">Help</a>
+                            <a href="{% url 'help' %}" class="menu-list-link s">Help</a>
                         </li>
                         <li class="menu-list-item">
+
                             <a href="{% url 'profile' %}" class="menu-list-link">Profile <u>`{{ request.user }}`</u></a>
+                            <img src="{{ request.user.profile.profile_pic.url }}" alt="" class="profile_img">
                         </li>
                         {% if not request.user.is_authenticated %}
                             <li class="menu-list-item">

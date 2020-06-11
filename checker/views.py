@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from checker.executor import *
 
+
 from .forms import *
 import ast
 # Create your views here.
@@ -52,21 +53,25 @@ def create_new_query(requests):
 def get_last_query(request):
 
 
+    try:
+        query = Query.objects.filter(profile_create=request.user.profile.steam_id64).latest()
+        if query:
+            instance_item = []
+            items_id = ast.literal_eval(query.items)
+            for item_id in items_id:
+                item = Item.objects.get(id=item_id)
+                instance_item.append(item)
 
-    query = Query.objects.filter(profile_create=request.user.profile.steam_id64).latest()
-    if query:
-        instance_item = []
-        items_id = ast.literal_eval(query.items)
-        for item_id in items_id:
-            item = Item.objects.get(id=item_id)
-            instance_item.append(item)
 
-        context = {'items': instance_item, 'total_price': query.total_price}
-        return render(request, 'main.html', context=context)
-    else:
+
+            context = {'items': instance_item, 'total_price': query.total_price, 'time_creation': query.time_q}
+            return render(request, 'main.html', context=context)
+        else:
+            context = {}
+            return render(request, 'main.html', context=context)
+    except:
         context = {}
         return render(request, 'main.html', context=context)
-
 
 
 
@@ -130,5 +135,11 @@ def user_page(request):
     return render(request, 'profile.html', context=context)
 
 
+
+
+@login_required(login_url='login')
+def help(request):
+
+    return render(request,'help.html')
 
 

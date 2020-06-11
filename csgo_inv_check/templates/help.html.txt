@@ -1,6 +1,0 @@
-{% extends 'base.html' %} {% load static %} {% block content %} 
-<h2>Help/About us</h2>
- <h4>This project was created as a part of our univerctiy course by three students.</h4>
- <h4>Of course, none of us is a experienced developer, but we tried our best to make the most out of recourses we had. Some bugs may be present in this project. If you want to report it, or want to suggest an idea, email us at kamish.main@gmail.com</h4>
- <h4>Anyway, hope you will find functionality of our project useful and make the most out of it. Have fun and wash your hands.</h4>
-{% endblock %}

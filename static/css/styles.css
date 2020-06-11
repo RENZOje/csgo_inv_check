@@ -1,220 +1,220 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.wrapper{
-  overflow: hidden;
+.wrapper {
+    overflow: hidden;
 }
 
-.p-0{
-  padding: 0;
+.p-0 {
+    padding: 0;
 }
 
-.m-10{
-  margin: 10px;
+.m-10 {
+    margin: 10px;
 }
 
-.card-box{
-  max-width: 1900px;
-  margin: 0px auto;
-}
-
-body{
-  max-width: 100%;
-  background-image: url(img/bugs.png);
+.card-box {
+    max-width: 1900px;
+    margin: 0px auto;
 }
 
 
-header{
-  width: 100%;
-  height: 60px;
-  background: #2f3640;
-  position: sticky;
-  top:0;
-  z-index: 1000;
+
+header {
+    width: 100%;
+    height: 60px;
+    background: #2f3640;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo_img-responsive{
-  height: 60px;
+.profile-picture {
+    top: 50%;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
 }
-.img-responsive{
-  display: block;
-  max-width: 100%;
-  height: auto;
+.profile_img{
+  position: relative;
+  height: 50px;
+  top: -50px;
+  right: 55px;
 }
-
-nav{
-  width: 100%;
-  height: 60px;
-}
-
-nav ul{
-  display: flex;
-  margin: 0;
+.logo_img-responsive {
+    height: 60px;
 }
 
-
-nav ul li a{
-  display: block;
-  color: #fff;
-  padding: 0 20px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  line-height: 50px;
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-.search-box{
-  margin-top: 10px;
-  background: #576574;
-  border-radius: 40px;
-  height: 40px;
+nav {
+    width: 100%;
+    height: 60px;
 }
 
-.search-btn{
-  color: #e84118;
-  float: left;
-  width: 40px;
-  height: 40px;
-  border-radius: 70%;
-  background: #576574;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  cursor: pointer;
-  border: none;
-  outline: none;
+nav ul {
+    display: flex;
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    color: #fff;
+    padding: 0 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+.search-box {
+    margin-top: 10px;
+    background: #576574;
+    border-radius: 40px;
+    height: 40px;
+}
+
+.search-btn {
+    color: #e84118;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 70%;
+    background: #576574;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 .search-txt {
-  margin-left:5px;
-  border: none;
-  background: none;
-  outline: none;
-  float: left;
-  padding: 0;
-  color: #fff;
-  font-size: 16px;
-  line-height: 40px;
-  width: 80%;
-  font-weight: bold;
+    margin-left: 5px;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #fff;
+    font-size: 16px;
+    line-height: 40px;
+    width: 80%;
+    font-weight: bold;
 }
 
-.menu-list{
-  padding-top: 5px;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
+.menu-list {
+    padding-top: 5px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
 }
 
-.filter{
-  background: #576574;
-  height: 30px;
-  width: 100%;
+.filter {
+    background: #576574;
+    height: 30px;
+    width: 100%;
 }
 
-.card-box{
+.card-box {
 
 }
 
-.card{
-  height: 320px;
-  padding-bottom: 1px;
-  background-color: #1e272e;
-  border-radius: 10px;
+.card {
+    height: 320px;
+    padding-bottom: 1px;
+    background-color: #1e272e;
+    border-radius: 10px;
 }
 
-.card-img{
-  background-size: contain;
-  padding: 5px 10px 5px 10px;
-  height: 15em;
-  background-repeat: no-repeat;
-  background-position: 50% 50px;
+.card-img {
+    background-size: contain;
+    padding: 5px 10px 5px 10px;
+    height: 15em;
+    background-repeat: no-repeat;
+    background-position: 50% 50px;
 }
 
-
-.in-game-inspect{
-  top:3%;
-  right:10px;
-  position: absolute;
-  height: 15px;
-  width: 24px;
+.in-game-inspect {
+    top: 3%;
+    right: 10px;
+    position: absolute;
+    height: 15px;
+    width: 24px;
 }
 
-.in-game-inspect a{
-  padding: 1px;
-  border: 2px solid #bdb8d7;
-  color: #bdb8d7;
-  border-radius: 5px;
-  display: flex;
+.in-game-inspect a {
+    padding: 1px;
+    border: 2px solid #bdb8d7;
+    color: #bdb8d7;
+    border-radius: 5px;
+    display: flex;
 }
 
-.view-detail{
-  top:11%;
-  right:10px;
-  position: absolute;
-  height: 15px;
-  width: 24px;
+.view-detail {
+    top: 11%;
+    right: 10px;
+    position: absolute;
+    height: 15px;
+    width: 24px;
 }
 
-.view-detail a{
-  padding: 1px;
-  border: 2px solid #bdb8d7;
-  color: #bdb8d7;
-  border-radius: 5px;
-  display: flex;
+.view-detail a {
+    padding: 1px;
+    border: 2px solid #bdb8d7;
+    color: #bdb8d7;
+    border-radius: 5px;
+    display: flex;
 }
 
-.trade-ban{
-  height: 2em;
-  color: #bdb8d7;
+.trade-ban {
+    height: 2em;
+    color: #bdb8d7;
 }
 
-
-
-.price{
-  display: flex;
-  justify-content: center;
-  color: #fff;
-  margin: 2px;
+.price {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    margin: 2px;
 }
 
-
-
-.card-info{
-  text-align: center;
-  border-top: 2px solid #485460;
-  border-radius: 10px;
-  color: #bdb8d7;
-  padding: 7px;
+.card-info {
+    text-align: center;
+    border-top: 2px solid #485460;
+    border-radius: 10px;
+    color: #bdb8d7;
+    padding: 7px;
 }
 
-
-.wear-line{
-  border-radius: 7px;
-  margin: 10px;
-  height: 7px;
-  background-image: linear-gradient(to right, rgb(46, 204, 113) 7%, rgb(255, 242, 0), rgb(255, 56, 56) 55%)
+.wear-line {
+    border-radius: 7px;
+    margin: 10px;
+    height: 7px;
+    background-image: linear-gradient(to right, rgb(46, 204, 113) 7%, rgb(255, 242, 0), rgb(255, 56, 56) 55%)
 }
 
-
-
-.wear-line .line{
-  height: 7px;
-  padding-bottom: 5px;
+.wear-line .line {
+    height: 7px;
+    padding-bottom: 5px;
 }
 
-
-.pointer{
-  color: white;
-  position: relative;
-  bottom: 20px;
+.pointer {
+    color: white;
+    position: relative;
+    bottom: 20px;
 }

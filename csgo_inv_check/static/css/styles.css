@@ -27,10 +27,6 @@
     margin: 0px auto;
 }
 
-body {
-    max-width: 100%;
-    background-image: url(img/bugs.png);
-}
 
 header {
     width: 100%;
@@ -56,6 +52,20 @@ nav {
     height: 60px;
 }
 
+.profile_img{
+  position: relative;
+  height: 50px;
+  top: -50px;
+  right: 55px;
+}
+
+.profile-picture {
+    top: 50%;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
 nav ul {
     display: flex;
     margin: 0;
