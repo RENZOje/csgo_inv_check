@@ -15,7 +15,12 @@ def create_new_query(requests):
     instance_item = []
     query_id = requests.GET.get('q', None)
     if query_id:
-        items = executor(query_id)
+        try:
+            items = executor(query_id)
+        except:
+            context = {}
+            messages.error(requests, 'Wrong Steam id64!')
+            return render(requests, 'main.html', context=context)
 
         query_item_list = []
         for i in range(len(items['rd_full_name'])):
@@ -37,6 +42,9 @@ def create_new_query(requests):
         total_price = round(sum(items['price']), 2)
 
         query = Query.objects.create(profile_create=int(query_id),items=query_item_list, total_price=total_price)
+
+        requests.user.profile.friend_search = ast.literal_eval(requests.user.profile.friend_search) + [query.id]
+        requests.user.profile.save()
 
         context = {'items': instance_item, 'total_price': total_price}
 
@@ -124,15 +132,30 @@ def register_page(request):
 
 @login_required(login_url='login')
 def user_page(request):
+
     profile = request.user.profile
     form = ProfileForm(instance=profile)
+
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
 
-    context = {'form': form}
-    return render(request, 'profile.html', context=context)
+
+    my_query = Query.objects.filter(profile_create=profile.steam_id64)
+
+
+    friends_query = [Query.objects.get(id=x) for x in ast.literal_eval(profile.friend_search)]
+
+
+    if my_query or friends_query:
+        context = {'form': form, 'my_query': my_query , 'friends_query':friends_query}
+        return render(request, 'profile.html', context=context)
+
+    else:
+        context = {'form': form}
+        return render(request, 'profile.html', context=context)
+
 
 
 

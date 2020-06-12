@@ -54,6 +54,19 @@ header {
     height: 60px;
 }
 
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
 .img-responsive {
     display: block;
     max-width: 100%;

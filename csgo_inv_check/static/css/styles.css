@@ -9,10 +9,9 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.wrapper{
-  overflow: hidden;
+.wrapper {
+    overflow: hidden;
 }
-
 
 .p-0 {
     padding: 0;
@@ -26,7 +25,6 @@
     max-width: 1900px;
     margin: 0px auto;
 }
-
 
 header {
     width: 100%;
@@ -52,11 +50,24 @@ nav {
     height: 60px;
 }
 
-.profile_img{
-  position: relative;
-  height: 50px;
-  top: -50px;
-  right: 55px;
+.profile_img {
+    position: relative;
+    height: 50px;
+    top: -50px;
+    right: 55px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
 }
 
 .profile-picture {
@@ -66,6 +77,7 @@ nav {
     margin: 0 auto;
     border-radius: 50%;
 }
+
 nav ul {
     display: flex;
     margin: 0;

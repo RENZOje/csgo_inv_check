@@ -27,11 +27,13 @@
 
                             <input class="btn btn-primary" type="submit" name="Update Information">
                         </form>
+                        Don't know your Steam id64? Use <a href="https://steamid.xyz/">steamid.xyz</a> to get it.
 
                     </div>
 
                     <div class="btmp">
-                        <a href="{% url 'home_page' %}"><h3 class="text"><i class="fas fa-arrow-left"></i> Back to main page</h3></a>
+                        <a href="{% url 'home_page' %}"><h3 class="text"><i class="fas fa-arrow-left"></i> Back to main
+                            page</h3></a>
                     </div>
 
                 </div>
@@ -47,22 +49,19 @@
                                 </ul>
                             </a>
                         </div>
-                        <div class="sss">
-                            <a href="#">
-                                <ul>
-                                    <li>Date: 10.05.15 at 15:25</li>
-                                    <li>Total price: 47$</li>
-                                </ul>
-                            </a>
-                        </div>
-                        <div class="sss">
-                            <a href="#">
-                                <ul>
-                                    <li>Date: 10.05.15 at 15:25</li>
-                                    <li>Total price: 47$</li>
-                                </ul>
-                            </a>
-                        </div>
+                        {% for query in my_query %}
+                            <div class="sss">
+                                <a href="#">
+                                    <ul>
+                                        <li>Date: {{ query.time_q }}</li>
+                                        <li>Total price: {{ query.total_price }}$</li>
+                                    </ul>
+                                </a>
+                            </div>
+
+                        {% endfor %}
+
+
                     </div>
                 </div>
 
@@ -76,22 +75,20 @@
                                 </ul>
                             </a>
                         </div>
-                        <div class="sss">
-                            <a href="#">
-                                <ul>
-                                    <li>Date: 10.05.15 at 15:25</li>
-                                    <li>Total price: 47$</li>
-                                </ul>
-                            </a>
-                        </div>
-                        <div class="sss">
-                            <a href="#">
-                                <ul>
-                                    <li>Date: 10.05.15 at 15:25</li>
-                                    <li>Total price: 47$</li>
-                                </ul>
-                            </a>
-                        </div>
+                        {% for query_f in friends_query %}
+                            <div class="sss">
+                                <a href="#">
+                                    <ul>
+                                        <li>Date: {{ query_f.time_q }}</li>
+                                        <li>Total price: {{ query_f.total_price }}$</li>
+                                        <li>Profile: {{ query_f.profile_create }}</li>
+                                    </ul>
+                                </a>
+                            </div>
+
+                        {% endfor %}
+
+
                     </div>
                 </div>
             </div>

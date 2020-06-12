@@ -3,8 +3,16 @@
 
 
 
-
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+
+           <center> {{ message }} You can use <a  target="_blank" rel="noopener noreferrer" href="https://steamid.xyz/">steamid.xyz</a> to get right.</center>
+
+        </div>
+    {% endfor %}
+    {% endif %}
 
     <section class="card-box">
     <div class="container-fluid m-10">

@@ -6,6 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User,null=True,on_delete=models.CASCADE)
     profile_pic = models.ImageField(null=True,default='profile_def.png')
     steam_id64 = models.CharField(max_length=17, null=True, default='')
+    friend_search = models.TextField(null=True, blank=True, default='[]')
 
     def __str__(self):
         return f'{self.user.username} {self.steam_id64}'

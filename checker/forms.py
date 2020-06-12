@@ -16,4 +16,4 @@ class ProfileForm(ModelForm):
     class Meta:
         model = Profile
         fields = '__all__'
-        exclude = ['user']
+        exclude = ['user','friend_search']
