@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'checker',
+    'storages',
 
 
 ]
@@ -121,13 +122,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/images/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
@@ -139,3 +141,14 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'kukarachac.info@gmail.com'
 EMAIL_HOST_PASSWORD = 'QwE741123'
+
+
+AWS_ACCESS_KEY_ID = 'AKIAQ57DULZOJ37KXZVD'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'kukarachav2-bucket'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

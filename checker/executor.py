@@ -85,11 +85,11 @@ def executor(steam_id64):
     rd_expiration = expiration_data(rg_descr_keys, json_data)
     prices_items = call_price(rd_full_name=rd_full_name)
     floats_items = call_float(rd_inspect_url=rd_inspect_url)
+
     items = {'rd_full_name':rd_full_name,
              'rd_icon_url':rd_icon_url,
              'rd_inspect_url':rd_inspect_url,
              'float':floats_items,
-             'trade_lock':'',
              'amount':ri_classid_amount,
              'class_item':[i[:][0] for i in rd_inspect_quality_exterior],
              'condition':[i[:][2] for i in rd_inspect_quality_exterior],
@@ -98,7 +98,20 @@ def executor(steam_id64):
              'price':prices_items,
              
              }
-    
+    items_min = min([len(x) for x in items.values()])
+
+    items = {'rd_full_name': rd_full_name[0:items_min],
+             'rd_icon_url': rd_icon_url[0:items_min],
+             'rd_inspect_url': rd_inspect_url[0:items_min],
+             'float': floats_items[0:items_min],
+             'amount': ri_classid_amount[0:items_min],
+             'class_item': [i[:][0] for i in rd_inspect_quality_exterior][0:items_min],
+             'condition': [i[:][2] for i in rd_inspect_quality_exterior][0:items_min],
+             'color': [i[:][1] for i in rd_inspect_quality_exterior][0:items_min],
+             'expiration': rd_expiration[0:items_min],
+             'price': prices_items[0:items_min],
+
+             }
     return items
 
-# executor('76561198245579318')
+# executor('76561197980865567')

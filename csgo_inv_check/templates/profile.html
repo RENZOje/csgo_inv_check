@@ -51,7 +51,7 @@
                         </div>
                         {% for query in my_query %}
                             <div class="sss">
-                                <a href="#">
+                                <a href="{% url 'query_detail' query.id %}">
                                     <ul>
                                         <li>Date: {{ query.time_q }}</li>
                                         <li>Total price: {{ query.total_price }}$</li>
@@ -68,7 +68,7 @@
                 <div class="col-5">
                     <div class="history-other">
                         <div class="sss">
-                            <a href="#">
+                            <a href="">
                                 <ul>
                                     <li></li>
                                     <li>Friends inventory:</li>
@@ -77,7 +77,7 @@
                         </div>
                         {% for query_f in friends_query %}
                             <div class="sss">
-                                <a href="#">
+                                <a href="{% url 'query_detail' query_f.id %}">
                                     <ul>
                                         <li>Date: {{ query_f.time_q }}</li>
                                         <li>Total price: {{ query_f.total_price }}$</li>

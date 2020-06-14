@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from checker.executor import *
-
+from django.views.generic import DetailView
 
 from .forms import *
 import ast
@@ -12,8 +12,25 @@ import ast
 @login_required(login_url='login')
 def create_new_query(requests):
 
-    instance_item = []
+
     query_id = requests.GET.get('q', None)
+
+    return _execute(requests, query_id)
+
+
+@login_required(login_url='login')
+def refresh_query(requests):
+
+    query_id = requests.user.profile.steam_id64
+
+    return _execute(requests, query_id)
+
+
+
+
+
+def _execute(requests, query_id):
+    instance_item = []
     if query_id:
         try:
             items = executor(query_id)
@@ -39,12 +56,22 @@ def create_new_query(requests):
             instance_item.append(item)
             query_item_list.append(item.id)
 
-        total_price = round(sum(items['price']), 2)
+        total_price = []
+        for i in range(0, len(items['price'])):
+            total_price.append(items['price'][i] * items['amount'][i])
+        total_price = round(sum(total_price), 2)
 
-        query = Query.objects.create(profile_create=int(query_id),items=query_item_list, total_price=total_price)
+        query = Query.objects.create(profile_create=int(query_id), items=query_item_list, total_price=total_price)
 
-        requests.user.profile.friend_search = ast.literal_eval(requests.user.profile.friend_search) + [query.id]
-        requests.user.profile.save()
+        print(requests.user.profile.steam_id64)
+        print(query_id)
+
+        if requests.user.profile.steam_id64 != query_id:
+            print(requests.user.profile.steam_id64 != query_id)
+            print(requests.user.profile.steam_id64)
+            print(query_id)
+            requests.user.profile.friend_search = ast.literal_eval(requests.user.profile.friend_search) + [query.id]
+            requests.user.profile.save()
 
         context = {'items': instance_item, 'total_price': total_price}
 
@@ -52,8 +79,6 @@ def create_new_query(requests):
     else:
         context = {}
         return render(requests, 'main.html', context=context)
-
-
 
 
 
@@ -80,6 +105,32 @@ def get_last_query(request):
     except:
         context = {}
         return render(request, 'main.html', context=context)
+
+
+@login_required(login_url='login')
+def get_detail_query(request, pk):
+
+    try:
+        query = Query.objects.get(id=pk)
+        if query:
+            instance_item = []
+            items_id = ast.literal_eval(query.items)
+            for item_id in items_id:
+                item = Item.objects.get(id=item_id)
+                instance_item.append(item)
+
+
+
+            context = {'items': instance_item, 'total_price': query.total_price, 'time_creation': query.time_q}
+            return render(request, 'main.html', context=context)
+        else:
+            context = {}
+            return render(request, 'main.html', context=context)
+    except:
+        context = {}
+        return render(request, 'main.html', context=context)
+
+
 
 
 

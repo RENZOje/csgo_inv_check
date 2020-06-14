@@ -1,4 +1,7 @@
 from django.urls import path
+from django.views.generic import DetailView
+from .models import *
+
 from django.contrib.auth import views as auth_views
 from . import views
 
@@ -10,6 +13,10 @@ urlpatterns = [
     path('register/', views.register_page, name='register'),
     path('profile/', views.user_page, name='profile'),
     path('help/', views.help, name='help'),
+
+    path('query/refresh/', views.refresh_query, name='query_refresh'),
+    path('query/<int:pk>/', views.get_detail_query, name='query_detail'),
+
 
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name='password_reset.html'),
          name='reset_password'),

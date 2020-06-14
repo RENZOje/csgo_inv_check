@@ -66,7 +66,25 @@ header {
     border-color: #ebccd1;
     color: #a94442;
 }
+.filter h1{
+  color: #fff;
+}
 
+.refresh-btn{
+  color: #e84118;
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 70%;
+  background: #576574;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
 .img-responsive {
     display: block;
     max-width: 100%;

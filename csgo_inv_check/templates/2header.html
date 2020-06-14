@@ -5,11 +5,13 @@
  	 <section class="filter">
  		<div class="container-fluid">
  			<div class="row">
- 				<div class="col-15 offset-2">
+ 				<div class="col-17 offset-1">
 
- 					<h1>Total price: {{ total_price }} $. Last inventory update: {{ time_creation }}</h1>
+ 					<h1>Total price: {{ total_price }} $. Last inventory update: {{ time_creation }}
+                        <a href="{% url 'query_refresh' %}"><button type="submit" class="refresh-btn"><i class="fas fa-redo-alt"></i></button></a></h1>
 
- 				</div>	
+
+ 				</div>
  			</div>
  		</div>
  	</section>
