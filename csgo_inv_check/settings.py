@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'e+5=t-$724iu8i+t75a2^j&m7kd0(+u)27!3$vx4g^8oor9!0&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['csgoinvcheck.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
