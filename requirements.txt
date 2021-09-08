@@ -23,7 +23,7 @@ jmespath==0.10.0
 lxml==4.5.1
 multidict==4.7.6
 parse==1.15.0
-Pillow==7.1.2
+Pillow==8.3.2
 psycopg2-binary==2.8.5
 pyee==7.0.2
 pyppeteer==0.2.2
